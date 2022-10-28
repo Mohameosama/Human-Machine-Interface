@@ -5,7 +5,8 @@ The human-machine interface consists of the hardware and software that are used 
 
 [Leap Motion](https://www.youtube.com/watch?v=_d6KuiuteIA&ab_channel=LeapMotion) company has introduced this technology through controlling a computer in three dimensions with your natural hand and finger movements. 
 
- >Combining machine learning with creative applications of sensors, we are planning to interact with the computer through our iris movement. 
+ >Combining machine learning with creative applications of sensors, we are planning to interact with the computer through our <style>p{color:red
+}iris movement</style>. 
   A face recognition model will be used to only recognize the interactive user, so we can bypass any other user located around.  
   The system will recognize the user face to take from him instructions through his iris movement and to avoid distractions from any other human. 
   A sound localization system will be there when the user makes a specific sound, the AI algorithm can track the location and size to visualize 
