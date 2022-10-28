@@ -3,7 +3,7 @@
 Human Machine interface is the way through which humans and computers communicate with one another. 
 The human-machine interface consists of the hardware and software that are used to transform user input into instructions and to show results to the user.
 
-
+[Leap Motion](https://www.youtube.com/watch?v=_d6KuiuteIA&ab_channel=LeapMotion) company has introduced this technology through controlling a computer in three dimensions with your natural hand and finger movements. 
 
  >Combining machine learning with creative applications of sensors, we are planning to interact with the computer through our iris movement. 
   A face recognition model will be used to only recognize the interactive user, so we can bypass any other user located around.  
@@ -12,3 +12,4 @@ The human-machine interface consists of the hardware and software that are used 
   the data just like a map so the camera system can follow the map to recognize and track the iris movements from the user.
   This means that the user doesn’t have to be located directly in front of the computer so the limitations of the technology 
   are lowered!
+
