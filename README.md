@@ -8,7 +8,7 @@ The human-machine interface consists of the hardware and software that are used 
 <details>
 <summary>Project description</summary>
 
-  Combining machine learning with creative applications of sensors, we are planning to interact with the computer through our <span style="color: red">       iris movement </span>. 
+  Combining machine learning with creative applications of sensors, we are planning to interact with the computer through our <span style="color:red">       iris movement </span>. 
   A face recognition model will be used to only recognize the interactive user, so we can bypass any other user located around.  
   The system will recognize the user face to take from him instructions through his iris movement and to avoid distractions from any other human. 
   A sound localization system will be there when the user makes a specific sound, the AI algorithm can track the location and size to visualize 
