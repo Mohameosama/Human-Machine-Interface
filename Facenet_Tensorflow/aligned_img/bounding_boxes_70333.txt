@@ -1,0 +1,113 @@
+./aligned_img\mohamedosama\WIN_20221113_16_01_48_Pro (2).png 518 293 765 629
+./aligned_img\mohamedosama\WIN_20221113_16_01_48_Pro.png 506 269 744 580
+./aligned_img\mohamedosama\WIN_20221113_16_01_49_Pro.png 558 303 805 629
+./aligned_img\mohamedosama\WIN_20221113_16_01_50_Pro.png 475 286 725 618
+./aligned_img\mohamedosama\WIN_20221113_16_01_52_Pro.png 514 258 757 586
+./aligned_img\mohamedosama\WIN_20221113_16_01_53_Pro.png 545 226 728 435
+./aligned_img\mohamedosama\WIN_20221113_16_01_55_Pro.png 551 349 732 576
+./aligned_img\mohamedosama\WIN_20221113_16_01_57_Pro.png 582 328 761 573
+./aligned_img\mohamedosama\WIN_20221113_16_01_59_Pro.png 641 296 822 533
+./aligned_img\mohamedosama\WIN_20221113_16_02_01_Pro.png 583 328 758 553
+./aligned_img\mohamedosama\WIN_20221113_16_02_03_Pro.png 500 262 774 634
+./aligned_img\mohamedosama\WIN_20221113_16_02_05_Pro.png 441 236 719 585
+./aligned_img\mohamedosama\WIN_20221113_16_02_06_Pro.png 460 244 739 616
+./aligned_img\mohamedosama\WIN_20221113_16_02_07_Pro.png 513 248 788 620
+./aligned_img\mohamedosama\WIN_20221113_16_02_08_Pro.png 511 254 791 636
+./aligned_img\mohamedosama\WIN_20221113_16_02_09_Pro.png 495 241 780 627
+./aligned_img\mohamedosama\WIN_20221113_16_02_11_Pro.png 480 324 687 587
+./aligned_img\mohamedosama\WIN_20221113_16_02_13_Pro.png 511 327 691 571
+./aligned_img\mohamedosama\WIN_20221113_16_02_15_Pro.png 492 363 664 598
+./aligned_img\mohamedosama\WIN_20221113_16_02_16_Pro.png 517 358 690 591
+./aligned_img\mohamedosama\WIN_20221113_16_02_18_Pro.png 523 323 694 559
+./aligned_img\mohamedosama\WIN_20221113_16_02_19_Pro (2).png 541 332 720 564
+./aligned_img\mohamedosama\WIN_20221113_16_02_19_Pro.png 578 319 762 565
+./aligned_img\mohamedosama\WIN_20221113_16_02_20_Pro.png 548 326 728 588
+./aligned_img\mohamedosama\WIN_20221113_16_02_21_Pro (2).png 549 356 740 614
+./aligned_img\mohamedosama\WIN_20221113_16_02_21_Pro.png 521 355 729 632
+./aligned_img\mohamedosama\WIN_20221113_16_02_22_Pro.png 501 342 699 607
+./aligned_img\mohamedosama\WIN_20221113_16_02_23_Pro (2).png 524 250 757 580
+./aligned_img\mohamedosama\WIN_20221113_16_02_23_Pro.png 511 352 730 647
+./aligned_img\mohamedosama\WIN_20221113_16_02_24_Pro.png 562 287 835 643
+./aligned_img\mohamedosama\WIN_20221113_16_02_25_Pro (2).png 494 273 772 659
+./aligned_img\mohamedosama\WIN_20221113_16_02_25_Pro.png 567 265 849 646
+./aligned_img\mohamedosama\WIN_20221113_16_02_32_Pro (2).png 521 268 772 599
+./aligned_img\mohamedosama\WIN_20221113_16_02_32_Pro.png 512 274 758 602
+./aligned_img\mohamedosama\WIN_20221113_16_02_33_Pro.png 559 301 809 641
+./aligned_img\mohamedosama\WIN_20221113_16_02_34_Pro (2).png 557 272 815 641
+./aligned_img\mohamedosama\WIN_20221113_16_02_34_Pro.png 474 318 720 626
+./aligned_img\mohamedosama\WIN_20221113_16_02_35_Pro.png 490 272 745 618
+./aligned_img\mohamedosama\WIN_20221113_16_02_36_Pro (2).png 524 281 768 609
+./aligned_img\mohamedosama\WIN_20221113_16_02_36_Pro.png 522 284 767 610
+./aligned_img\mohamedosama\WIN_20221113_16_02_37_Pro (2).png 528 273 772 611
+./aligned_img\mohamedosama\WIN_20221113_16_02_37_Pro.png 528 280 769 604
+./aligned_img\mohamedosama\WIN_20221113_16_02_38_Pro.png 528 270 777 611
+./aligned_img\mohamedosama\WIN_20221113_16_02_39_Pro.png 530 271 773 609
+./aligned_img\mohamedosama\WIN_20221113_16_02_40_Pro (2).png 501 284 737 599
+./aligned_img\mohamedosama\WIN_20221113_16_02_40_Pro (3).png 502 293 736 595
+./aligned_img\mohamedosama\WIN_20221113_16_02_40_Pro.png 494 271 738 597
+./aligned_img\mohamedosama\WIN_20221113_16_02_41_Pro.png 503 297 741 594
+./aligned_img\mohamedosama\WIN_20221113_16_02_43_Pro.png 582 291 825 609
+./aligned_img\mohamedosama\WIN_20221113_16_02_44_Pro.png 577 270 826 601
+./aligned_img\mohamedosama\WIN_20221113_16_02_47_Pro.png 531 256 767 576
+./aligned_img\mohamedosama\WIN_20221113_16_02_48_Pro (2).png 535 260 771 572
+./aligned_img\mohamedosama\WIN_20221113_16_02_48_Pro.png 536 259 770 572
+./aligned_img\mohamedosama\WIN_20221113_16_02_49_Pro.png 536 259 771 573
+./aligned_img\mohamedosama\WIN_20221113_16_02_50_Pro (2).png 539 264 772 573
+./aligned_img\mohamedosama\WIN_20221113_16_02_50_Pro.png 542 272 772 573
+./aligned_img\mohamedosama\WIN_20221113_16_02_53_Pro (2).png 512 262 813 674
+./aligned_img\mohamedosama\WIN_20221113_16_02_53_Pro.png 509 257 811 671
+./aligned_img\mohamedosama\WIN_20221113_16_02_54_Pro (2).png 511 260 811 668
+./aligned_img\mohamedosama\WIN_20221113_16_02_54_Pro (3).png 499 276 797 664
+./aligned_img\mohamedosama\WIN_20221113_16_02_54_Pro.png 509 278 807 664
+./aligned_img\mohamedosama\WIN_20221113_16_02_55_Pro.png 511 257 816 672
+./aligned_img\mohamedosama\WIN_20221113_16_02_56_Pro (2).png 514 267 804 659
+./aligned_img\mohamedosama\WIN_20221113_16_02_56_Pro.png 509 285 801 658
+./aligned_img\mohamedosama\WIN_20221113_16_02_57_Pro (2).png 507 306 824 758
+./aligned_img\mohamedosama\WIN_20221113_16_02_57_Pro.png 513 267 817 675
+./aligned_img\mohamedosama\WIN_20221113_16_02_58_Pro.png 498 327 793 732
+./aligned_img\mohamedosama\WIN_20221113_16_02_59_Pro (2).png 468 281 782 731
+./aligned_img\mohamedosama\WIN_20221113_16_02_59_Pro.png 464 335 777 751
+./aligned_img\mohamedosama\WIN_20221113_16_03_00_Pro (2).png 473 269 765 673
+./aligned_img\mohamedosama\WIN_20221113_16_03_00_Pro.png 471 264 770 669
+./aligned_img\mohamedosama\WIN_20221113_16_03_01_Pro.png 463 278 764 679
+./aligned_img\mohamedosama\WIN_20221113_16_03_05_Pro (2).png 354 265 693 669
+./aligned_img\mohamedosama\WIN_20221113_16_03_05_Pro (3).png 355 269 693 675
+./aligned_img\mohamedosama\WIN_20221113_16_03_05_Pro.png 358 271 690 664
+./aligned_img\mohamedosama\WIN_20221113_16_03_06_Pro.png 340 265 686 680
+./aligned_img\mohamedosama\WIN_20221113_16_03_07_Pro (2).png 351 270 690 673
+./aligned_img\mohamedosama\WIN_20221113_16_03_07_Pro.png 357 269 692 670
+./aligned_img\mohamedosama\WIN_20221113_16_03_08_Pro.png 366 268 678 656
+./aligned_img\mohamedosama\WIN_20221113_16_03_10_Pro (2).png 516 285 719 552
+./aligned_img\mohamedosama\WIN_20221113_16_03_10_Pro.png 520 288 719 551
+./aligned_img\mohamedosama\WIN_20221113_16_03_11_Pro (2).png 504 280 709 553
+./aligned_img\mohamedosama\WIN_20221113_16_03_11_Pro.png 514 282 719 552
+./aligned_img\mohamedosama\WIN_20221113_16_03_12_Pro.png 512 295 713 551
+./aligned_img\mohamedosama\WIN_20221113_16_03_13_Pro.png 522 289 718 550
+./aligned_img\mohamedosama\WIN_20221113_16_03_18_Pro.png 498 305 727 601
+./aligned_img\mohamedosama\WIN_20221113_16_03_19_Pro.png 498 310 714 591
+./aligned_img\mohamedosama\WIN_20221113_16_03_20_Pro (2).png 492 300 709 582
+./aligned_img\mohamedosama\WIN_20221113_16_03_20_Pro.png 495 288 726 577
+./aligned_img\mohamedosama\WIN_20221113_16_03_21_Pro.png 501 308 715 584
+./aligned_img\mohamedosama\WIN_20221113_16_03_22_Pro (2).png 492 305 712 583
+./aligned_img\mohamedosama\WIN_20221113_16_03_22_Pro.png 499 319 705 583
+./aligned_img\mohamedosama\WIN_20221113_16_03_23_Pro (2).png 481 304 712 586
+./aligned_img\mohamedosama\WIN_20221113_16_03_23_Pro.png 483 302 715 592
+./aligned_img\ronaldo\gettyimages-1034213684-612x612.png 398 214 466 308
+./aligned_img\ronaldo\gettyimages-1126287114-612x612.png 228 50 316 167
+./aligned_img\ronaldo\gettyimages-1163338011-612x612.png 300 98 360 177
+./aligned_img\ronaldo\gettyimages-1235184166-612x612.png 247 150 330 251
+./aligned_img\ronaldo\gettyimages-1321784160-612x612.png 241 34 343 177
+./aligned_img\ronaldo\gettyimages-1323726735-612x612.png 275 103 357 210
+./aligned_img\ronaldo\gettyimages-1325105287-612x612.png 316 46 377 120
+./aligned_img\ronaldo\gettyimages-1337497848-612x612.png 197 60 279 175
+./aligned_img\ronaldo\gettyimages-1337497849-612x612.png 199 60 279 170
+./aligned_img\ronaldo\gettyimages-1339327901-612x612.png 261 110 318 187
+./aligned_img\ronaldo\gettyimages-1339671531-612x612.png 276 64 373 190
+./aligned_img\ronaldo\gettyimages-1343908437-612x612.png 264 38 338 137
+./aligned_img\ronaldo\gettyimages-1344015600-612x612.png 259 56 314 128
+./aligned_img\ronaldo\gettyimages-1358485714-612x612.png 285 68 340 138
+./aligned_img\ronaldo\gettyimages-1414689787-612x612.png 226 54 282 126
+./aligned_img\ronaldo\gettyimages-1434951093-612x612.png 280 61 332 132
+./aligned_img\ronaldo\gettyimages-81188838-612x612.png 256 62 311 136
+./aligned_img\ronaldo\gettyimages-846571724-612x612.png 321 441 341 468
+./aligned_img\ronaldo\gettyimages-962792890-612x612.png 346 130 383 182
