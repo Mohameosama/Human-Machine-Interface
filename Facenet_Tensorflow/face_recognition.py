@@ -10,7 +10,7 @@ import time
 import pickle
 from PIL import Image
 import tensorflow.compat.v1 as tf
-video="ronaldo.mp4" #0
+video=  "ronaldo.mp4" #0
 modeldir = './model/20180402-114759.pb'
 classifier_filename = './class/classifier.pkl'
 npy='./npy'
@@ -78,7 +78,7 @@ with tf.Graph().as_default():
                         predictions = model.predict_proba(emb_array)
                         best_class_indices = np.argmax(predictions, axis=1)
                         best_class_probabilities = predictions[np.arange(len(best_class_indices)), best_class_indices]
-                        if best_class_probabilities>0.87:
+                        if best_class_probabilities>0.94: #theshhold 
                             cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)    #boxing face
                             for H_i in HumanNames:
                                 if HumanNames[best_class_indices[0]] == H_i:

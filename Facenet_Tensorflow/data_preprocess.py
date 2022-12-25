@@ -11,3 +11,6 @@ print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
 
 
 
+#1- data_preprocess
+#2- train_main
+#3- face_recognition 
