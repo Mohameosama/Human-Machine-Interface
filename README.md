@@ -17,4 +17,3 @@ The human-machine interface consists of the hardware and software that are used 
   are lowered!
 </details>
  
-
