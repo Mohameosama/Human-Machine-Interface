@@ -8,6 +8,7 @@ actions = np.array(['right click', 'left click'])
 noSequences = 30
 sequenceLen = 30
 
+
 def mediapipeDetection(img, model):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img.flags.writeable = False
