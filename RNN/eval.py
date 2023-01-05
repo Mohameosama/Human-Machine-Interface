@@ -1,6 +1,6 @@
 from sklearn.metrics import multilabel_confusion_matrix, accuracy_score
 import numpy as np
-from train import getModel, X_test, y_test
+from RNN.train import getModel, X_test, y_test
 
 model = getModel()
 model.load_weights('model.h5')

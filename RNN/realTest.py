@@ -31,7 +31,7 @@ def prob_viz(res, actions, input_frame, colors):
 
 cap = cv2.VideoCapture(0)
 # Set mediapipe model 
-with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
+with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=0.8) as holistic:
     while cap.isOpened():
 
         # Read feed

@@ -5,7 +5,7 @@ if __name__ == "__main__":
     for action in actions:
         for sequence in range(noSequences):
             try:
-                os.makedirs(os.path.join(gesturesDataPath, action, str(sequence)))
+                os.makedirs(os.path.join(dataPath, action, str(sequence)))
             except Exception as e:
                 print("error happened: ", e)
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
                     
                     # NEW Export keypoints
                     keypoints = getKeyPoints(results)
-                    npy_path = os.path.join(gesturesDataPath, action, str(sequence), str(frame_num))
+                    npy_path = os.path.join(dataPath, action, str(sequence), str(frame_num))
                     np.save(npy_path, keypoints)
 
                     # Break gracefully
