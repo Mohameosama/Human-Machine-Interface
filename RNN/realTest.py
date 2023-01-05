@@ -14,7 +14,15 @@ model.load_weights("model.h5")
 
 
 colors = [(245,117,16), (117,245,16), (16,117,245)]
-#
+
+def prob_viz(res, actions, input_frame, colors):
+    output_frame = input_frame.copy()
+    for num, prob in enumerate(res):
+        cv2.rectangle(output_frame, (0,60+num*40), (int(prob*100), 90+num*40), colors[num], -1)
+        cv2.putText(output_frame, actions[num], (0, 85+num*40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
+        
+    return output_frame
+
 
 
 
@@ -58,7 +66,7 @@ with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                 sentence = sentence[-5:]
 
             # Viz probabilities
-            #frame = prob_viz(res, actions, frame, colors)
+            frame = prob_viz(res, actions, frame, colors)
             
         cv2.rectangle(frame, (0,0), (640, 40), (300, 0, 16), -1)
         cv2.putText(frame, str(sentence), (3,30), 
