@@ -4,8 +4,8 @@ import mediapipe as mp
 import cv2
 
 dataPath = "../Data/"
-gesturesDataPath = os.path.join(f'{dataPath}/Gestures')
-modelPath = os.path.join(f'../Models/')
+gesturesDataPath = os.path.join(f'Data/Gestures')
+modelPath = os.path.join(f'Models')
 log_dir = os.path.join('../Logs')
 
 actions = np.array(['right click', 'left click'])

@@ -1,15 +1,18 @@
 import cv2
-from collectData import mpHolistics, mediapipeDetection, drawLandmarks, getKeyPoints, actions
 import numpy as np
-from train import getModel
+# from train import getModel
+from globalModule.globalModule import *
+import tensorflow as tf
 
 sequence = []
 sentence = []
 predictions = []
 threshold = 0.5
 
-model = getModel()
-model.load_weights("model.h5")
+model = tf.keras.models.load_model(f'{modelPath}/RNN/test.h5')
+
+# model = getModel()
+# model.load_weights("model.h5")
 
 
 
@@ -36,7 +39,7 @@ with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
 
         # Make detections
         results = mediapipeDetection(frame, holistic)
-        print(results)
+        # print(results)
         
         # Draw landmarks
         drawLandmarks(frame, results)
