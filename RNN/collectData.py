@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 dataPath = os.path.join('data')
-actions = np.array(['hello', 'thanks', 'iloveyou'])
+actions = np.array(['right click', 'left click'])
 noSequences = 30
 sequenceLen = 30
 
