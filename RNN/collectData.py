@@ -1,4 +1,4 @@
-from globalClass.globalClass import * 
+from globalModule.globalModule import * 
 
 if __name__ == "__main__":
 
