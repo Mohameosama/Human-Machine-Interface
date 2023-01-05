@@ -1,13 +1,10 @@
-import cv2
+from globalClass import *
 import mediapipe as mp
-import numpy as np
-import os
+import cv2
 
-dataPath = os.path.join('GesturesData')
-actions = np.array(['right click', 'left click'])
-noSequences = 30
-sequenceLen = 30
 
+mpHolistics = mp.solutions.holistic
+mpDrawing = mp.solutions.drawing_utils
 
 def mediapipeDetection(img, model):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -29,8 +26,7 @@ def drawLandmarks(img, results):
     mpDrawing.draw_landmarks(img, results.left_hand_landmarks, mpHolistics.HAND_CONNECTIONS)
     mpDrawing.draw_landmarks(img, results.right_hand_landmarks, mpHolistics.HAND_CONNECTIONS)
     
-mpHolistics = mp.solutions.holistic
-mpDrawing = mp.solutions.drawing_utils
+
 if __name__ == "__main__":
 
 
