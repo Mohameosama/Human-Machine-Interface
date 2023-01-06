@@ -3,10 +3,16 @@ import os
 import mediapipe as mp
 import cv2
 
-dataPath = "../Data/"
-gesturesDataPath = os.path.join(f'Data')
+mainDirPath = os.getcwd()
+mainDirPath = mainDirPath[:mainDirPath.index("Human-Machine-Interface") + len("Human-Machine-Interface")]
+os.chdir(mainDirPath)
+
+
+
+dataPath = "../data/"
+gesturesDataPath = os.path.join(f'data/gestures')
 modelPath = os.path.join(f'Models')
-log_dir = os.path.join('../Logs')
+log_dir = os.path.join('Logs')
 
 actions = np.array(['left click', 'right click'])
 noSequences = 100
