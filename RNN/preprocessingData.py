@@ -13,7 +13,10 @@ for action in actions:
     for sequence in np.array(os.listdir(os.path.join(gesturesDataPath, action))).astype(int):
         window = []
         for frame_num in range(sequenceLen):
-            res = np.load(os.path.join(gesturesDataPath, action, str(sequence), "{}.npy".format(frame_num)))
-            window.append(res)
+            try:
+                res = np.load(os.path.join(gesturesDataPath, action, str(sequence), "{}.npy".format(frame_num)))
+                window.append(res)
+            except Exception as e:
+                print(e)
         sequences.append(window)
         labels.append(labelMap[action])
