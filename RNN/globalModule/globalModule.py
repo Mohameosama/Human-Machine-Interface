@@ -15,7 +15,7 @@ modelPath = os.path.join(f'Models')
 log_dir = os.path.join('Logs')
 
 actions = np.array(['click', 'swipe up'])
-noSequences = 100
+noSequences = 5
 sequenceLen = 30
 
 mpHolistics = mp.solutions.holistic
