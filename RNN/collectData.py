@@ -2,20 +2,21 @@ from globalModule.globalModule import *
 
 if __name__ == "__main__":
     index = 0
-    for action in actions: #action = actions[1] for specific gesture
+    #for action in actions: 
+    action = actions[2] #for specific gesture
+    try:
+        index = len(os.listdir(f"{gesturesDataPath}/{action}"))
+    except:
+        index = 0
+
+
+    for sequence in range(noSequences):
+        
         try:
-            index = len(os.listdir(f"{gesturesDataPath}/{action}"))
-        except:
-            index = 0
-
-
-        for sequence in range(noSequences):
-            
-            try:
-                sequence += index
-                os.makedirs(os.path.join(gesturesDataPath, action, str(sequence)))
-            except Exception as e:
-                print("error happened: ", e)
+            sequence += index
+            os.makedirs(os.path.join(gesturesDataPath, action, str(sequence)))
+        except Exception as e:
+            print("error happened: ", e)
     cap = cv2.VideoCapture(0)
 
     with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
