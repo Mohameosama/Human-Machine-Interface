@@ -3,7 +3,7 @@ from globalModule.globalModule import *
 if __name__ == "__main__":
     index = 0
     #for action in actions: 
-    action = actions[3] #for specific gesture
+    action = actions[4] #for specific gesture
     try:
         index = len(os.listdir(f"{gesturesDataPath}/{action}"))
     except:
