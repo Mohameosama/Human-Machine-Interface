@@ -11,6 +11,7 @@ if __name__ == "__main__":
 
 
     for sequence in range(noSequences):
+        print (sequence)
         
         try:
             sequence += index
@@ -21,10 +22,12 @@ if __name__ == "__main__":
 
     with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
         
-        for action in actions:
+        #for action in actions:
             # Loop through sequences aka videos
             for sequence in range(noSequences):
+                print(sequence)
                 sequence+=index
+                
                 # Loop through video length aka sequence length
                 for frame_num in range(sequenceLen):
 
@@ -41,6 +44,7 @@ if __name__ == "__main__":
                     if frame_num == 0: 
                         cv2.putText(frame, 'STARTING COLLECTION', (120,200), 
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255, 0), 4, cv2.LINE_AA)
+                        print(sequence)
                         cv2.putText(frame, 'Collecting frames for {} Video Number {}'.format(action, sequence), (15,12), 
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                         # Show to screen
