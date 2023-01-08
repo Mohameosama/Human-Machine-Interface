@@ -79,7 +79,7 @@ with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=
         cv2.imshow('OpenCV Feed', frame)
 
         # Break gracefully
-        if cv2.waitKey(10) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     cap.release()
     cv2.destroyAllWindows()
