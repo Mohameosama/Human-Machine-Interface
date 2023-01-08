@@ -1,0 +1,14 @@
+./aligned_img\ronaldo\download (1).png 152 27 194 86
+./aligned_img\ronaldo\download.png 87 25 158 110
+./aligned_img\ronaldo\images (10).png 44 34 113 126
+./aligned_img\ronaldo\images (11).png 58 30 131 130
+./aligned_img\ronaldo\images (12).png 105 34 162 113
+./aligned_img\ronaldo\images (13).png 77 34 144 128
+./aligned_img\ronaldo\images (2).png 111 16 146 59
+./aligned_img\ronaldo\images (3).png 89 23 144 98
+./aligned_img\ronaldo\images (4).png 52 31 118 118
+./aligned_img\ronaldo\images (5).png 55 15 114 99
+./aligned_img\ronaldo\images (6).png 59 30 112 103
+./aligned_img\ronaldo\images (7).png 110 44 147 97
+./aligned_img\ronaldo\images (8).png 147 12 194 75
+./aligned_img\ronaldo\images (9).png 142 16 189 87

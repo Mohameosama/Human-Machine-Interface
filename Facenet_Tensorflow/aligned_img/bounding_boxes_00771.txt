@@ -1,0 +1,2 @@
+./aligned_img\ronaldo\cristiano-ronaldo-5k-wallpaper-preview.png 268 108 453 350
+./aligned_img\ronaldo\cristiano-ronaldo-desktop-downloads-wallpaper-preview.png 397 166 564 365

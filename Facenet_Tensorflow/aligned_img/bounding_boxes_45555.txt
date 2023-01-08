@@ -1,0 +1,3 @@
+./aligned_img\ronaldo\09041aab4992f68071d4a135ac557725.png 492 152 736 478
+./aligned_img\ronaldo\2058.png 90 17 186 159
+./aligned_img\ronaldo\images (1).png 37 64 156 207

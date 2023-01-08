@@ -1,0 +1,6 @@
+./aligned_img\ronaldo\Screenshot 2023-01-08 195924.png 82 39 230 234
+./aligned_img\ronaldo\Screenshot 2023-01-08 200122.png 78 36 231 242
+./aligned_img\ronaldo\Screenshot 2023-01-08 200153.png 96 46 247 246
+./aligned_img\ronaldo\Screenshot 2023-01-08 200231.png 51 22 199 216
+./aligned_img\ronaldo\Screenshot 2023-01-08 200311.png 84 43 189 180
+./aligned_img\ronaldo\Screenshot 2023-01-08 200343.png 80 21 214 198

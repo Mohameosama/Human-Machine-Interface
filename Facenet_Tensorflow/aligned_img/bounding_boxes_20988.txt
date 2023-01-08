@@ -1,0 +1,12 @@
+./aligned_img\ronaldo\Screenshot 2023-01-08 200153 - Copy (2).png 96 46 247 246
+./aligned_img\ronaldo\Screenshot 2023-01-08 200153 - Copy (3).png 96 46 247 246
+./aligned_img\ronaldo\Screenshot 2023-01-08 200153 - Copy.png 96 46 247 246
+./aligned_img\ronaldo\Screenshot 2023-01-08 200231 - Copy (2).png 51 22 199 216
+./aligned_img\ronaldo\Screenshot 2023-01-08 200231 - Copy (3).png 51 22 199 216
+./aligned_img\ronaldo\Screenshot 2023-01-08 200231 - Copy.png 51 22 199 216
+./aligned_img\ronaldo\Screenshot 2023-01-08 200311 - Copy (2).png 84 43 189 180
+./aligned_img\ronaldo\Screenshot 2023-01-08 200311 - Copy (3).png 84 43 189 180
+./aligned_img\ronaldo\Screenshot 2023-01-08 200311 - Copy.png 84 43 189 180
+./aligned_img\ronaldo\Screenshot 2023-01-08 200343 - Copy (2).png 80 21 214 198
+./aligned_img\ronaldo\Screenshot 2023-01-08 200343 - Copy (3).png 80 21 214 198
+./aligned_img\ronaldo\Screenshot 2023-01-08 200343 - Copy.png 80 21 214 198
