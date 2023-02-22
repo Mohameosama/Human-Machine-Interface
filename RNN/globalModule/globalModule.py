@@ -15,6 +15,7 @@ modelPath = os.path.join(f'Models')
 log_dir = os.path.join('Logs')
 
 actions = np.array(['click', 'swipe up', 'volume up', 'close', 'pause&play'])
+grides = np.array(['leftUP, leftDown, rightUp, rightDown'])
 noSequences = 50
 sequenceLen = 30
 
