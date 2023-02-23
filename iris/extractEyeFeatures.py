@@ -2,6 +2,11 @@ import mediapipe as mp
 import cv2
 from tkinter import *
 import os
+import numpy as np
+#468 to 477 are iris
+#size = 32
+numberOfPointsNeeded = [33, 7, 246, 163, 161, 160, 144, 159, 145, 158, 153, 157, 154, 173,155, 133, 362, 398, 382, 384, 381, 385, 380, 386, 374, 387, 373, 388, 390, 466, 249, 263]
+print(len(numberOfPointsNeeded))
 
 mp_drawing = mp.solutions.drawing_utils
 mp_face_mesh = mp.solutions.face_mesh
@@ -46,17 +51,18 @@ def draw_landmarks(image, result):
             #     connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_iris_connections_style()
             # )
 #7, 
-#468 to 477 are iris
+
             height, width, _ = image.shape
-            for i in range(468, 478):
-                if i == 7:
-                    continue
-                pt = face_landmark.landmark[158]
+            for i in numberOfPointsNeeded:
+                pt = face_landmark.landmark[i]
                 x = int(pt.x * width)
                 y = int(pt.y * height)
                 
+                # if(i not in numberOfPointsNeeded):
                 cv2.circle(image, (x, y), 3, (100, 100, 0))
-            
+                # cv2.imshow(f"image {i}", image)
+                # cv2.waitKey(0)
+                # cv2.destroyAllWindows()
             
             # for face_landmark in mp_face_mesh.FACEMESH_IRISES:
             #     print(face_landmark)
