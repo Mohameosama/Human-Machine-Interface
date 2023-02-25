@@ -4,7 +4,8 @@ from tkinter import *
 import os
 import numpy as np
 import csv
-
+import tensorflow as tf
+import pandas as pd
 #468 to 477 are iris
 #size = 32, 42 after iris
 numberOfPointsNeeded = [33, 7, 246, 163, 161, 160, 144, 159, 145, 158, 153, 157, 154, 173,155, 133, 362, 398, 382, 384, 381, 385, 380, 386, 374, 387, 373, 388, 390, 466, 249, 263, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477]
@@ -83,22 +84,57 @@ def draw_landmarks(image, result, label):
                     
     return image
 
+def getData():
+    data = []
+    directory = f"test.csv"   
+    f = os.path.join(directory)                  
+    data = pd.read_csv(f'{f}', header=None)
+
+    data = np.array(data)
+    # data.resize(1, -1)
+    # print(data.size)
+    
+    return data
+    
 
 
+def realtimeTest(image, result):
+    image.flags.writeable = True
+    if result.multi_face_landmarks:
+        for face_landmark in result.multi_face_landmarks:
+            height, width, _ = image.shape
+            with open(f'test.csv', 'w', newline='') as file:
+                writer = csv.writer(file)
+                for i in numberOfPointsNeeded:
+                        pt = face_landmark.landmark[i]
+                        print(face_landmark.landmark[i].x)
+                        tempX = int(pt.x * width)
+                        tempY = int(pt.y * height)
+                        writer.writerow([face_landmark.landmark[i].x, face_landmark.landmark[i].y, face_landmark.landmark[i].z])                                                            
+    return image
 
 
 def click1():
+        
+        
         cam = cv2.VideoCapture(0)
         # reading the input using the camera
         result, image = cam.read()
         result, landmarks = get_landmark(image)
-        img = draw_landmarks(image, result, 0)
+        # img = draw_landmarks(image, result, 0)
+        # cv2.imshow("test", img)
+        # cv2.waitKey(0)
+        # cv2.destroyWindow("test")
+
+        model = tf.keras.models.load_model(f'iris.h5')
+        realtimeTest(image, result)
+        data = getData()
+        res = model.predict(np.expand_dims(data, axis=0))[0]
+        print(f"you looked at {np.argmax(res)}")
+        
 
         
         
-        cv2.imshow("test", img)
-        cv2.waitKey(0)
-        cv2.destroyWindow("test")
 def click2():
         cam = cv2.VideoCapture(0)
         # reading the input using the camera
@@ -135,23 +171,6 @@ def click4():
         cv2.imshow("test", img)
         cv2.waitKey(0)
         cv2.destroyWindow("test")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # creating main tkinter window/toplevel
