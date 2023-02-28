@@ -8,7 +8,12 @@ import tensorflow as tf
 import pandas as pd
 #468 to 477 are iris
 #size = 32, 42 after iris
-numberOfPointsNeeded = [33, 7, 246, 163, 161, 160, 144, 159, 145, 158, 153, 157, 154, 173,155, 133, 362, 398, 382, 384, 381, 385, 380, 386, 374, 387, 373, 388, 390, 466, 249, 263, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477]
+
+rightEyePoints = [33, 7, 246, 163, 161, 160, 144, 159, 145, 158, 153, 157, 154, 173,155, 133]
+leftEyePoints = [362, 398, 382, 384, 381, 385, 380, 386, 374, 387, 373, 388, 390, 466, 249, 263]
+
+rightIrisPoints = [468, 469, 470, 471, 472]
+leftIrisPoints = [473, 474, 475, 476, 477]
 
 mp_drawing = mp.solutions.drawing_utils
 mp_face_mesh = mp.solutions.face_mesh
@@ -29,31 +34,6 @@ def draw_landmarks(image, result, label):
     image.flags.writeable = True
     if result.multi_face_landmarks:
         for face_landmark in result.multi_face_landmarks:
-            # mp_drawing.draw_landmarks(
-            #     image=image,
-            #     connections=mp_face_mesh.FACEMESH_TESSELATION,
-            #     landmark_list=face_landmark,
-            #     landmark_drawing_spec=None,
-            #     connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_tesselation_style()
-            # )
-            
-            # mp_drawing.draw_landmarks(
-            #     image=image,
-            #     connections=mp_face_mesh.FACEMESH_CONTOURS,
-            #     landmark_list=face_landmark,
-            #     landmark_drawing_spec=None,
-            #     connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_contours_style()
-            # )
-
-            # mp_drawing.draw_landmarks(
-            #     image=image,
-            #     connections=mp_face_mesh.FACEMESH_IRISES,
-            #     landmark_list=face_landmark,
-            #     landmark_drawing_spec=None,
-            #     connection_drawing_spec=mp_drawing_styles.get_default_face_mesh_iris_connections_style()
-            # )
-#7, 
-
             height, width, _ = image.shape
             try:
                 index = len(os.listdir(f"dataset/{label}"))
@@ -61,7 +41,7 @@ def draw_landmarks(image, result, label):
                 index = 0
             with open(f'dataset/{label}/{index}.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
-                for i in numberOfPointsNeeded:
+                for i in rightIrisPoints:
                         pt = face_landmark.landmark[i]
                         print(face_landmark.landmark[i].x)
                         tempX = int(pt.x * width)
@@ -95,7 +75,6 @@ def getData():
     # print(data.size)
     
     return data
-    
 
 
 def realtimeTest(image, result):
@@ -105,12 +84,12 @@ def realtimeTest(image, result):
             height, width, _ = image.shape
             with open(f'test.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
-                for i in numberOfPointsNeeded:
-                        pt = face_landmark.landmark[i]
-                        print(face_landmark.landmark[i].x)
-                        tempX = int(pt.x * width)
-                        tempY = int(pt.y * height)
-                        writer.writerow([face_landmark.landmark[i].x, face_landmark.landmark[i].y, face_landmark.landmark[i].z])                                                            
+                # for i in numberOfPointsNeeded:
+                #         pt = face_landmark.landmark[i]
+                #         print(face_landmark.landmark[i].x)
+                #         tempX = int(pt.x * width)
+                #         tempY = int(pt.y * height)
+                #         writer.writerow([face_landmark.landmark[i].x, face_landmark.landmark[i].y, face_landmark.landmark[i].z])                                                            
     return image
 
 
@@ -121,16 +100,16 @@ def click1():
         # reading the input using the camera
         result, image = cam.read()
         result, landmarks = get_landmark(image)
-        # img = draw_landmarks(image, result, 0)
-        # cv2.imshow("test", img)
-        # cv2.waitKey(0)
-        # cv2.destroyWindow("test")
+        img = draw_landmarks(image, result, 0)
+        cv2.imshow("test", img)
+        cv2.waitKey(0)
+        cv2.destroyWindow("test")
 
-        model = tf.keras.models.load_model(f'iris.h5')
-        realtimeTest(image, result)
-        data = getData()
-        res = model.predict(np.expand_dims(data, axis=0))[0]
-        print(f"you looked at {np.argmax(res)}")
+        # model = tf.keras.models.load_model(f'iris.h5')
+        # realtimeTest(image, result)
+        # data = getData()
+        # res = model.predict(np.expand_dims(data, axis=0))[0]
+        # print(f"you looked at {np.argmax(res)}")
         
 
         
