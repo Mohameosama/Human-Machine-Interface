@@ -92,10 +92,10 @@ def click(label):
     
     
     ###################THIS FOR TESTING###################
-    # test_realtime(image, result)
+    test_realtime(image, result)
 
     ###################THIS FOR COLLECTING DATA###################
-    img = draw_landmarks(image, result, label)
+    # img = draw_landmarks(image, result, label)
 
 
 master = Tk()
