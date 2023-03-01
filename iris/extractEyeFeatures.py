@@ -6,6 +6,8 @@ import numpy as np
 import csv
 import tensorflow as tf
 import pandas as pd
+import math
+
 #468 to 477 are iris
 #size = 32, 42 after iris
 
@@ -30,6 +32,9 @@ def get_landmark(image):
     landmarks = result.multi_face_landmarks[0].landmark
     return result, landmarks
 
+def euclideanDistance(x1, y1, x2 ,y2):
+     return math.sqrt( (x1 - x2)**2 + (y1 - y2)**2 )
+
 def draw_landmarks(image, result, label):
     image.flags.writeable = True
     if result.multi_face_landmarks:
@@ -41,30 +46,40 @@ def draw_landmarks(image, result, label):
                 index = 0
             with open(f'dataset/{label}/{index}.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
-                for i in rightIrisPoints:
-                        pt = face_landmark.landmark[i]
-                        print(face_landmark.landmark[i].x)
-                        tempX = int(pt.x * width)
-                        tempY = int(pt.y * height)
-                        writer.writerow([face_landmark.landmark[i].x, face_landmark.landmark[i].y, face_landmark.landmark[i].z])
+                
+                for eyePoint in rightEyePoints:
+                     for irisPoint in rightIrisPoints:
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                for eyePoint in leftEyePoints:
+                     for irisPoint in leftIrisPoints:
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                
+                # for i in rightIrisPoints:
+                #         pt = face_landmark.landmark[i]
+                #         print(face_landmark.landmark[i].x)
+                #         tempX = int(pt.x * width)
+                #         tempY = int(pt.y * height)
+                #         writer.writerow([face_landmark.landmark[i].x, face_landmark.landmark[i].y, face_landmark.landmark[i].z])
                         
-                        # if(i not in numberOfPointsNeeded):
-                        cv2.circle(image, (tempX, tempY), 3, (100, 100, 0))
-                        # cv2.imshow(f"image {i}", image)
-                        # cv2.waitKey(0)
-                        # cv2.destroyAllWindows()
+                #         # if(i not in numberOfPointsNeeded):
+                #         cv2.circle(image, (tempX, tempY), 3, (100, 100, 0))
+                #         # cv2.imshow(f"image {i}", image)
+                #         # cv2.waitKey(0)
+                #         # cv2.destroyAllWindows()
                     
-                    # for face_landmark in mp_face_mesh.FACEMESH_IRISES:
-                    #     print(face_landmark)
-                    #     # pt = face_landmark.landmark
-                    #     x = int(face_landmark[0])
-                    #     y = int(face_landmark[1])
+                #     # for face_landmark in mp_face_mesh.FACEMESH_IRISES:
+                #     #     print(face_landmark)
+                #     #     # pt = face_landmark.landmark
+                #     #     x = int(face_landmark[0])
+                #     #     y = int(face_landmark[1])
                         
-                    #     cv2.circle(image, (x, y), 3, (100, 100, 0))
-                    
+                #     #     cv2.circle(image, (x, y), 3, (100, 100, 0))
+
+
     return image
 
-def getData():
+
+def test_getData():
     data = []
     directory = f"test.csv"   
     f = os.path.join(directory)                  
@@ -77,13 +92,19 @@ def getData():
     return data
 
 
-def realtimeTest(image, result):
+def test_realtime(image, result):
     image.flags.writeable = True
     if result.multi_face_landmarks:
         for face_landmark in result.multi_face_landmarks:
             height, width, _ = image.shape
             with open(f'test.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
+                for eyePoint in rightEyePoints:
+                     for irisPoint in rightIrisPoints:
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                for eyePoint in leftEyePoints:
+                     for irisPoint in leftIrisPoints:
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
                 # for i in numberOfPointsNeeded:
                 #         pt = face_landmark.landmark[i]
                 #         print(face_landmark.landmark[i].x)
@@ -93,65 +114,37 @@ def realtimeTest(image, result):
     return image
 
 
-def click1():
-        
+def click(label):
+    cam = cv2.VideoCapture(0)
+    result, image = cam.read()
+
+    result, landmarks = get_landmark(image)
+    img = draw_landmarks(image, result, 0)
+    
+    model = tf.keras.models.load_model(f'iris.h5')
+    test_realtime(image, result)
+    data = test_getData()
+    res = model.predict(np.expand_dims(data, axis=0))[0]
+    print(f"you looked at {np.argmax(res)}")
+
+
+def click0():
         
         cam = cv2.VideoCapture(0)
         # reading the input using the camera
         result, image = cam.read()
         result, landmarks = get_landmark(image)
         img = draw_landmarks(image, result, 0)
-        cv2.imshow("test", img)
-        cv2.waitKey(0)
-        cv2.destroyWindow("test")
+        # cv2.imshow("test", img)
+        # cv2.waitKey(0)
+        # cv2.destroyWindow("test")
 
-        # model = tf.keras.models.load_model(f'iris.h5')
-        # realtimeTest(image, result)
-        # data = getData()
-        # res = model.predict(np.expand_dims(data, axis=0))[0]
-        # print(f"you looked at {np.argmax(res)}")
+        model = tf.keras.models.load_model(f'iris.h5')
+        test_realtime(image, result)
+        data = test_getData()
+        res = model.predict(np.expand_dims(data, axis=0))[0]
+        print(f"you looked at {np.argmax(res)}")
         
-
-        
-        
-def click2():
-        cam = cv2.VideoCapture(0)
-        # reading the input using the camera
-        result, image = cam.read()
-        result, landmarks = get_landmark(image)
-        img = draw_landmarks(image, result, 1)
-
-        
-        
-        cv2.imshow("test", img)
-        cv2.waitKey(0)
-        cv2.destroyWindow("test")
-def click3():
-        cam = cv2.VideoCapture(0)
-        # reading the input using the camera
-        result, image = cam.read()
-        result, landmarks = get_landmark(image)
-        img = draw_landmarks(image, result, 2)
-
-        
-        
-        cv2.imshow("test", img)
-        cv2.waitKey(0)
-        cv2.destroyWindow("test")
-def click4():
-        cam = cv2.VideoCapture(0)
-        # reading the input using the camera
-        result, image = cam.read()
-        result, landmarks = get_landmark(image)
-        img = draw_landmarks(image, result, 3)
-
-        
-        
-        cv2.imshow("test", img)
-        cv2.waitKey(0)
-        cv2.destroyWindow("test")
-
-
 # creating main tkinter window/toplevel
 master = Tk()
 
@@ -165,16 +158,16 @@ master.columnconfigure(1, weight=1)
 master.rowconfigure(0, weight=1)
 master.rowconfigure(1, weight=1)
 
-rectangle_1 = Button(master, text="button 0", bg='yellow', command=click1)
+rectangle_1 = Button(master, text="button 0", bg='yellow', command= lambda: click(0))
 rectangle_1.grid(column=0,row=0, sticky='WENS')
 
-rectangle_2 = Button(master, text="Button 1", bg='blue', command=click2)
+rectangle_2 = Button(master, text="Button 1", bg='blue', command= lambda: click(1))
 rectangle_2.grid(column=0, row=1, sticky="NSEW")
 
-rectangle_3 = Button(master, text="Button 2", bg='red', command=click3)
+rectangle_3 = Button(master, text="Button 2", bg='red', command= lambda: click(2))
 rectangle_3.grid(column=1, row=0, sticky="NSEW")
 
-rectangle_4 = Button(master, text="Button 3", bg='green', command=click4)
+rectangle_4 = Button(master, text="Button 3", bg='green', command= lambda: click(3))
 rectangle_4.grid(column=1, row=1, sticky="NSEW")
 
 
