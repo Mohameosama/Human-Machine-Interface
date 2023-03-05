@@ -4,6 +4,7 @@ if __name__ == "__main__":
     index = 0
     #for action in actions: 
     action = actions[2] #for specific gesture
+    print(action)
     try:
         index = len(os.listdir(f"{gesturesDataPath}/{action}"))
     except:
