@@ -98,29 +98,49 @@ def click(label):
     # img = draw_landmarks(image, result, label)
 
 
+
+def create_rectangle(frame,name, button, color, click_nu, col, ro):
+    rec_name = name
+    rec_name= Button(frame, text= button, bg = color, command=lambda:click(click_nu))
+    rec_name.grid(column=col, row=ro, sticky='NSEW' )
+
+
+
+    
+
 master = Tk()
 
 master.attributes('-fullscreen', True)
 master.title("IRIS control")
 
-
 master.columnconfigure(0, weight=1)
 master.columnconfigure(1, weight=1)
+
 
 master.rowconfigure(0, weight=1)
 master.rowconfigure(1, weight=1)
 
-rectangle_1 = Button(master, text="button 0", bg='yellow', command= lambda: click(0))
-rectangle_1.grid(column=0,row=0, sticky='NSEW')
 
-rectangle_2 = Button(master, text="Button 1", bg='blue', command= lambda: click(1))
-rectangle_2.grid(column=0, row=1, sticky="NSEW")
 
-rectangle_3 = Button(master, text="Button 2", bg='red', command= lambda: click(2))
-rectangle_3.grid(column=1, row=0, sticky="NSEW")
 
-rectangle_4 = Button(master, text="Button 3", bg='green', command= lambda: click(3))
-rectangle_4.grid(column=1, row=1, sticky="NSEW")
+
+
+# rectangle_1 = Button(master, text="button 0", bg='yellow', command= lambda: click(0))
+# rectangle_1.grid(column=0,row=0, sticky='NSEW')
+create_rectangle(master, 'rectangle_1', 'Button 0', 'yellow',0,0,0)
+create_rectangle(master, 'rectangle_2', 'Button 1', 'blue',1,0,1)
+create_rectangle(master, 'rectangle_3', 'Button 2', 'red',2,1,0)
+create_rectangle(master, 'rectangle_4', 'Button 3', 'green',3,1,1)
+
+# rectangle_2 = Button(master, text="Button 1", bg='blue', command= lambda: click(1))
+# rectangle_2.grid(column=0, row=1, sticky="NSEW")
+
+# rectangle_3 = Button(master, text="Button 2", bg='red', command= lambda: click(2))
+# rectangle_3.grid(column=1, row=0, sticky="NSEW")
+
+# rectangle_4 = Button(master, text="Button 3", bg='green', command= lambda: click(3))
+# rectangle_4.grid(column=1, row=1, sticky="NSEW")
+
 
 
 mainloop()
