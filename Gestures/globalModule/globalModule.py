@@ -14,7 +14,7 @@ gesturesDataPath = os.path.join(f'data/gestures')
 modelPath = os.path.join(f'Models')
 log_dir = os.path.join('Logs')
 
-actions = np.array(['click', 'swipe up', 'volume up', 'close', 'pause&play', 'nothingg'])
+actions = np.array(['click', 'swipe up', 'volume up', 'close', 'pause&play', 'anothingg'])
 print(actions)
 grides = np.array(['leftUP, leftDown, rightUp, rightDown'])
 noSequences = 50
