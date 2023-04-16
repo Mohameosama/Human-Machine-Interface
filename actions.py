@@ -16,7 +16,7 @@ def runAction(gesture):
 
         # set volume
 
-        target_volume = 40
+        target_volume = outputVol + 20
         osascript.osascript("set volume output volume {}".format(target_volume))
         
     #elif gesture == 'click':
