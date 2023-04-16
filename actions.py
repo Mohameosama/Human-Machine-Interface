@@ -19,12 +19,9 @@ def runAction(gesture):
         target_volume = 40
         osascript.osascript("set volume output volume {}".format(target_volume))
         
-    elif gesture == 'click':
+    #elif gesture == 'click':
         
-        tell application "System Events"
-            click at {123,456}
-        end tell
-
+    
 
 
 
