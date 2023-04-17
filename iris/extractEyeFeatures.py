@@ -17,6 +17,9 @@ leftEyePoints = [362, 398, 382, 384, 381, 385, 380, 386, 374, 387, 373, 388, 390
 rightIrisPoints = [468, 469, 470, 471, 472]
 leftIrisPoints = [473, 474, 475, 476, 477]
 
+roundedFacePoints = [10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109]
+extraPoints = [468, 473, 127, 10, 356, 152]
+
 mp_drawing = mp.solutions.drawing_utils
 mp_face_mesh = mp.solutions.face_mesh
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -32,8 +35,9 @@ def get_landmark(image):
     landmarks = result.multi_face_landmarks[0].landmark
     return result, landmarks
 
-def euclideanDistance(x1, y1, x2 ,y2):
-     return math.sqrt( (x1 - x2)**2 + (y1 - y2)**2 )
+def euclideanDistance(x1, y1, z1, x2 ,y2, z2):
+     z2 = 0
+     return math.sqrt( (x1 - x2)**2 + (y1 - y2)**2 + (z1 -z2)**2 )
 
 def draw_landmarks(image, result, label):
     image.flags.writeable = True
@@ -47,13 +51,45 @@ def draw_landmarks(image, result, label):
             with open(f'dataset/{label}/{index}.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
                 
+                for point in rightIrisPoints:
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 0, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 1, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 1, 0)] )
+                
+                for point in rightIrisPoints:
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 0, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 1, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 1, 0)] )
+                
+
                 for eyePoint in rightEyePoints:
                      for irisPoint in rightIrisPoints:
-                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y, face_landmark.landmark[irisPoint].z )] )
                 for eyePoint in leftEyePoints:
                      for irisPoint in leftIrisPoints:
-                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y,  face_landmark.landmark[irisPoint].z)] )
+                
+
+               #  for eyePoint in rightEyePoints:
+               #       for facePoint in roundedFacePoints:
+               #            writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[facePoint].x, face_landmark.landmark[facePoint].y, face_landmark.landmark[facePoint].z )] )
+               #  for eyePoint in leftEyePoints:
+               #       for facePoint in roundedFacePoints:
+               #            writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[facePoint].x, face_landmark.landmark[facePoint].y,  face_landmark.landmark[facePoint].z)] )
+
+                
             
+            
+            
+            
+            # for point in roundedFacePoints:
+            #     x = int(face_landmark.landmark[point].x * width)
+            #     y = int(face_landmark.landmark[point].y * height)
+            #     image = cv2.circle(image, (x,y), 1, (255, 255, 255), 3)
+            # cv2.imshow(f"{point}", image)
+            # cv2.waitKey(0)
     return image
 
 def test_realtime(image, result):
@@ -66,12 +102,35 @@ def test_realtime(image, result):
             height, width, _ = image.shape
             with open(f'test.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
+                
+                for point in rightIrisPoints:
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 0, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 1, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 1, 0)] )
+                
+                for point in rightIrisPoints:
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 0, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 1, 0.5, 0)] )
+                    writer.writerow( [euclideanDistance( face_landmark.landmark[point].x, face_landmark.landmark[point].y, face_landmark.landmark[point].z, 0.5, 1, 0)] )
+                
+
                 for eyePoint in rightEyePoints:
                      for irisPoint in rightIrisPoints:
-                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y, face_landmark.landmark[irisPoint].z )] )
                 for eyePoint in leftEyePoints:
                      for irisPoint in leftIrisPoints:
-                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y)] )                                                           
+                          writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[irisPoint].x, face_landmark.landmark[irisPoint].y,  face_landmark.landmark[irisPoint].z)] )
+               
+               
+
+               #  for eyePoint in rightEyePoints:
+               #       for facePoint in roundedFacePoints:
+               #            writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[facePoint].x, face_landmark.landmark[facePoint].y, face_landmark.landmark[facePoint].z )] )
+               #  for eyePoint in leftEyePoints:
+               #       for facePoint in roundedFacePoints:
+               #            writer.writerow( [euclideanDistance( face_landmark.landmark[eyePoint].x, face_landmark.landmark[eyePoint].y, face_landmark.landmark[eyePoint].z, face_landmark.landmark[facePoint].x, face_landmark.landmark[facePoint].y,  face_landmark.landmark[facePoint].z)] )
 
     data = []
     directory = f"test.csv"   
@@ -82,6 +141,24 @@ def test_realtime(image, result):
     print(f"you looked at {np.argmax(res)}")
     # return image
 
+def tryPoints(image, result, label):
+    image.flags.writeable = True
+    if result.multi_face_landmarks:
+        for face_landmark in result.multi_face_landmarks:
+            height, width, _ = image.shape
+            
+            # for point in leftIrisPoints:
+            point = leftIrisPoints[0]    
+            x = int(face_landmark.landmark[point].x * width)
+            y = int(face_landmark.landmark[point].y * height)
+            image = cv2.circle(image, (x,y), 1, (255, 255, 255), 3)
+            cv2.imshow(f"x: {face_landmark.landmark[point].x}, y: {face_landmark.landmark[point].y} , z: {face_landmark.landmark[point].z}", image)
+            print("=======================================================")
+            print(f": {face_landmark.landmark[point].z}")
+            print("=======================================================")
+            cv2.waitKey(0)
+                
+    return image
 
 def click(label):
     
@@ -89,10 +166,10 @@ def click(label):
     result, image = cam.read()
     result, landmarks = get_landmark(image)
     
-    
+    tryPoints(image, result, "0")
     
     ###################THIS FOR TESTING###################
-    test_realtime(image, result)
+    # test_realtime(image, result)
 
     ###################THIS FOR COLLECTING DATA###################
     # img = draw_landmarks(image, result, label)
