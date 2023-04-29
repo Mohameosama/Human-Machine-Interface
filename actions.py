@@ -1,27 +1,22 @@
-import osascript
-import pyautogui
+#import pyautogui
 import sys
 import keyboard
+#import osascript
 
 
-keyboard.press_and_release('shift+s, spaceS ')
+ 
 
-def runAction(gesture):
-    
-    if gesture == 'volume up':
-        
-    
-        # get volume settings
+def on_spacebar_press(event):
+    if event.name == 'space':
+        print('Space bar pressed!')
 
-        result = osascript.osascript('get volume settings')
-        volInfo = result[1].split(',')
-        outputVol = volInfo[0].replace('output volume:', '')
-        print(outputVol)
+# Listen for space bar key press events
+keyboard.on_press(on_spacebar_press)
 
-        # set volume
+# Keep the program running
+keyboard.wait() 
 
-        target_volume = outputVol + 20
-        osascript.osascript("set volume output volume {}".format(target_volume))
+
         
     #elif gesture == 'click':
 
