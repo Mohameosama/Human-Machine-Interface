@@ -37,10 +37,6 @@ with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=
         # Read feed
         ret, frame = cap.read()
 
-        print("======================================================================")
-        print(frame.shape)
-        print("======================================================================")
-
         # Make detections
         results = mediapipeDetection(frame, holistic)
         # print(results)
@@ -73,7 +69,7 @@ with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=
                 sentence = sentence[-5:]
 
             # Viz probabilities
-            frame = prob_viz(res, actions, frame, colors)
+            # frame = prob_viz(res, actions, frame, colors)
             
         cv2.rectangle(frame, (0,0), (640, 40), (300, 0, 16), -1)
         cv2.putText(frame, str(sentence), (3,30), 
