@@ -23,17 +23,22 @@ Normal LOOP:
 
 from multiprocessing import Process, Queue
 import cv2
+# from Gestures.globalModule.globalModule import *
+import Gestures.globalModule.realTest as ges
 
 #predict frames from framesQueue
 #then puts in resultQueue
 def predictGesture(framesQueue, resultsQueue):    
+    frames = []
     while 1:
-        if framesQueue.empty():
-            #TODO framesQueue.gets()
-            #TODO resultsQueue.puts()
-            print("empty")
+        if not framesQueue.empty():
+            frames.append(framesQueue)
+            if len(frames) == 30:
+                print("30 frames")
+                ges.main(frames)
+                frames = []
         else:
-            print("not")
+            print("no data")
 def predictIris(framesQueue, resultsQueue):
     while 1:
         if framesQueue.empty():
@@ -41,7 +46,7 @@ def predictIris(framesQueue, resultsQueue):
             #TODO resultsQueue.puts()
             print("empty")
         else:
-            print("not")
+            print("no data")
         
 
 camera = cv2.VideoCapture(-1)
@@ -58,19 +63,22 @@ framesQueue_iris = Queue()
 gesturesThread = Process(target=predictGesture, args=(framesQueue_gestures, resultsQueue_gestures,))
 gesturesThread.start()
 
-gesturesThread = Process(target=predictIris, args=(framesQueue_iris, resultsQueue_iris,))
-gesturesThread.start()
+# irisThread = Process(target=predictIris, args=(framesQueue_iris, resultsQueue_iris,))
+# irisThread.start()
 
 while(1):
     success ,frame = camera.read()    
     
-    if success:
-        frames_30.append(frame)
-        count += 1
-    
-    if count == numberOfFrames:
-        framesQueue_iris.put(frames_30)
-        framesQueue_gestures.put(frames_30)
+    framesQueue_iris.put(frame)
+    framesQueue_gestures.put(frame)
 
-        count = 0
-        frames_30.clear()
+    # if success:
+    #     frames_30.append(frame)
+    #     count += 1
+    
+    # if count == numberOfFrames:
+    #     framesQueue_iris.put(frames_30)
+    #     framesQueue_gestures.put(frames_30)
+
+    #     count = 0
+    #     frames_30.clear()
