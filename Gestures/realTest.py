@@ -37,6 +37,10 @@ with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=
         # Read feed
         ret, frame = cap.read()
 
+        print("======================================================================")
+        print(frame.shape)
+        print("======================================================================")
+
         # Make detections
         results = mediapipeDetection(frame, holistic)
         # print(results)

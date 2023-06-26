@@ -20,17 +20,16 @@ class gestures():
         self.model = tf_load_model(f'{modelPath}/RNN/test.h5')
 
         self.colors = [(245,117,16), (117,245,16), (16,117,245)]
-
-        self.sequence = []
-        self.sentence = []
+        
         self.predictions = []
-        self.threshold = 0.5
     
     def predict(self, frames):
+        sequence = []
         # Set mediapipe model 
         with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=0.8) as holistic:
             for frame in frames:
                 # Make detections
+        
                 results = mediapipeDetection(frame, holistic)
                 # print(results)
                 
@@ -43,9 +42,9 @@ class gestures():
                 sequence = sequence[-30:]
                 
                 if len(sequence) == 30:
-                    res = model.predict(np.expand_dims(sequence, axis=0))[0]
+                    res = self.model.predict(np.expand_dims(sequence, axis=0))[0]
                     print(actions[np.argmax(res)])
-                    predictions.append(np.argmax(res))
+                    self.predictions.append(np.argmax(res))
                           
          
 
