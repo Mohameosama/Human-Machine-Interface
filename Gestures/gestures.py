@@ -1,8 +1,11 @@
 from tensorflow.keras.models import load_model as tf_load_model
 import numpy as np
+import cv2
+from globalModule.globalModule import *
+
 
 class gestures():
-    def __init__(self,  modelDir: str) -> None:
+    def __init__(self) -> None:
 
         gestures_dict = {
         'click': 0,
@@ -13,33 +16,37 @@ class gestures():
         'anothingg': 5,
         }
        
-        self.model = tf_load_model(modelDir)
-        
-        
-    def track_gaze(self, frames: list[np.ndarray]) -> np.ndarray:
-        """Main method for taking in a list of frames and then giving the output coordinates of user gaze on the screen.
-            the method will loop over the given frames and predict gaze location for each one, then average out the predictions and return the result
+        # self.model = tf_load_model(modelDir)
+        self.model = tf_load_model(f'{modelPath}/RNN/test.h5')
 
-        Input:
-        ---------
-        frames: List of frames containing at least one opencv cap frame
-        """
+        self.colors = [(245,117,16), (117,245,16), (16,117,245)]
 
-        sequence = []
+        self.sequence = []
+        self.sentence = []
+        self.predictions = []
+        self.threshold = 0.5
+    
+    def predict(self, frames):
+        # Set mediapipe model 
+        with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=0.8) as holistic:
+            for frame in frames:
+                # Make detections
+                results = mediapipeDetection(frame, holistic)
+                # print(results)
+                
+                # Draw landmarks
+                drawLandmarks(frame, results)
 
-        for frame in frames:
-            (eyeMetrics, inputFrame), frame = self.corneaReader.readEyes(frame)
-            inputFrames.append(self.corneaReader.preProcessOnTheFly(frame))
-            inputMetrics.append(eyeMetrics)
+                # 2. Prediction logic
+                keypoints = getKeyPoints(results)
+                sequence.append(keypoints)
+                sequence = sequence[-30:]
+                
+                if len(sequence) == 30:
+                    res = model.predict(np.expand_dims(sequence, axis=0))[0]
+                    print(actions[np.argmax(res)])
+                    predictions.append(np.argmax(res))
+                          
+         
 
-        inputMetrics = np.array(inputMetrics)
-        inputFrames = np.array(inputFrames)
-        predictions = self.model.predict([inputFrames, inputMetrics])
-        coordinates = np.average(predictions, axis=0)
 
-        return coordinates    
-        
-        
-        
-        
-        

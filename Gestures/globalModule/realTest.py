@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 # from train import getModel
-# from globalModule.globalModule import *
-from Gestures.globalModule.globalModule import *
 # from globalModule import *
+from Gestures.globalModule.globalModule import *
 
 import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 # sequence = []
 # sentence = []
@@ -38,7 +38,7 @@ def main1():
     sentence = []
     predictions = []
     threshold = 0.5
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(9)
 
     # Set mediapipe model 
     with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=0.8) as holistic:
@@ -96,13 +96,18 @@ def main1():
 
 def main(frames):
 
-    model = tf.keras.models.load_model(f'{modelPath}/RNN/test.h5')
+    model = load_model(f'{modelPath}/RNN/test.h5')
+
+    print("reached")
+
     colors = [(245,117,16), (117,245,16), (16,117,245)]
 
     sequence = []
     sentence = []
     predictions = []
     threshold = 0.5    
+
+    
 
     # Set mediapipe model 
     with mpHolistics.Holistic(min_detection_confidence=0.8, min_tracking_confidence=0.8) as holistic:
@@ -113,12 +118,16 @@ def main(frames):
             
             # Draw landmarks
             drawLandmarks(frame, results)
+
             
+
             # 2. Prediction logic
             keypoints = getKeyPoints(results)
             sequence.append(keypoints)
             sequence = sequence[-30:]
             
+
+
             if len(sequence) == 30:
                 res = model.predict(np.expand_dims(sequence, axis=0))[0]
                 print(actions[np.argmax(res)])
