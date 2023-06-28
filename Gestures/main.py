@@ -39,7 +39,7 @@ def predictGesture(framesQueue, resultsQueue):
                 # print("30 frames")
             print(framesQueue.qsize())
             gesture.predict(framesQueue.get())
-            framesQueue = Queue()
+            # framesQueue = Queue()
                 # frames = []
         
         
@@ -57,7 +57,7 @@ def predictIris(framesQueue, resultsQueue):
             print("no data")
         
 
-camera = cv2.VideoCapture(1)
+camera = cv2.VideoCapture(0)
 count = 0
 frames_30 = []
 numberOfFrames = 30 #TODO should get numberOfFrames from gestures module
@@ -78,11 +78,11 @@ frames_list = []
 cv2.waitKey(3000)
 while(1):
     success ,frame = camera.read()    
-    frames_list.append(frame)
-    frames_list = frames_list[-30:]
+    frames_list.append(frame)    
 
-    if len(frames_list) >= 30:
-        framesQueue_iris.put(frames_list)
+    if len(frames_list) >= 30 and framesQueue_gestures.qsize() <= 0:
+        frames_list = frames_list[-30:]
+        # framesQueue_iris.put(frames_list)
         framesQueue_gestures.put(frames_list)
 
     # if success:

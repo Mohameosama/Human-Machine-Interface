@@ -39,7 +39,7 @@ class gestures():
                 # 2. Prediction logic
                 keypoints = getKeyPoints(results)
                 sequence.append(keypoints)
-                sequence = sequence[-30:]
+                # sequence = sequence[-30:]
                 
                 if len(sequence) == 30:
                     res = self.model.predict(np.expand_dims(sequence, axis=0))[0]
