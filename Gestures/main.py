@@ -26,6 +26,9 @@ import cv2
 # from Gestures.globalModule.globalModule import *
 # import Gestures.globalModule.realTest as ges
 import gestures as Gesture
+import pyautogui
+# from cornea.classes.gazeTracker import GazeTracker
+from cornea.classes.gazeTracker import GazeTracker
 
 #predict frames from framesQueue
 #then puts in resultQueue
@@ -48,11 +51,15 @@ def predictGesture(framesQueue, resultsQueue):
 
 
 def predictIris(framesQueue, resultsQueue):
+    
+    gazeTracker = GazeTracker('Models/convModelTest3.h5')
+
     while 1:
-        if framesQueue.empty():
-            #TODO framesQueue.gets()
-            #TODO resultsQueue.puts()
-            print("empty")
+
+        if not framesQueue.empty():
+            frames = framesQueue.get()
+            coordinates = gazeTracker.track_gaze(frames)
+            pyautogui.moveTo(coordinates[0], coordinates[1])
         else:
             print("no data")
         
@@ -84,6 +91,9 @@ while(1):
         frames_list = frames_list[-30:]
         # framesQueue_iris.put(frames_list)
         framesQueue_gestures.put(frames_list)
+    if len(frames_list) >= 3 and framesQueue_iris.qsize() <= 0:
+        temp_frames = frames_list[-3:]
+        framesQueue_iris.put(temp_frames)
 
     # if success:
     #     frames_30.append(frame)
