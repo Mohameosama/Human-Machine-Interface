@@ -1,3 +1,6 @@
 [submodule "Actuator"]
 	path = Actuator
 	url = https://github.com/karimkohel/Actuator
+[submodule "cornea"]
+	path = cornea
+	url = git@github.com:karimkohel/cornea.git
