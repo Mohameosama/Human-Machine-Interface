@@ -49,36 +49,6 @@ def predictIris(framesQueue, resultsQueue):
 
 camera = cv2.VideoCapture(2)
 
-
-
-
-
-
-
-
-
-
-
-mpHolistics = mp.solutions.holistic
-def isHandFound(frame):    
-    
-    with mpHolistics.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
-        results = holistic.process(frame)
-        if results.right_hand_landmarks == None:
-            return False
-        else:
-            return True
-        
-
-
-
-
-
-
-
-
-
-
 numberOfFrames = 30 #TODO should get numberOfFrames from gestures module
 
 framesQueue_gestures = Queue()
